@@ -11,7 +11,7 @@ import 'contribute_goal_dialog.dart';
 import 'transfer_sheet.dart';
 
 /// Écran Accounts : liste des comptes (cash, carte, épargne)
-/// + section objectifs d'épargne avec barres de progression.
+/// et section objectifs d'épargne avec barres de progression.
 class AccountsScreen extends StatelessWidget {
   AccountsScreen({super.key});
 

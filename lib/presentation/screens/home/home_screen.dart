@@ -15,8 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // Un seul service, injecté ici. On pourrait le passer en paramètre
-  // du widget si on veut faciliter les tests plus tard.
+  // Un seul service, injecté ici.
   final FirestoreService _firestoreService = FirestoreService();
 
   final NumberFormat _currencyFormat =

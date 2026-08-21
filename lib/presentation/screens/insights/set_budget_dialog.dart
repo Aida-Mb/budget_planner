@@ -4,8 +4,7 @@ import '../../../data/services/firestore_service.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_input.dart';
 
-/// Dialog compact pour définir la limite budgétaire mensuelle
-/// d'une catégorie donnée.
+/// Dialog compact pour définir la limite budgétaire mensuelle d'une catégorie donnée.
 class SetBudgetDialog extends StatefulWidget {
   final String category;
   final double? currentLimit;

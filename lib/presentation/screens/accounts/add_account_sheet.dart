@@ -119,7 +119,6 @@ class _AddAccountSheetState extends State<AddAccountSheet> {
   }
 
   /// Rangée de "chips" visuels pour choisir le type de compte,
-  /// façon sélecteur de catégorie dans les apps de référence.
   Widget _buildTypeSelector() {
     final types = AppCategories.accountTypes.entries.toList();
 

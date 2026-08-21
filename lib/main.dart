@@ -5,7 +5,6 @@ import 'core/constants/app_constants.dart';
 import 'presentation/screens/onboarding/app_entry_point.dart';
 
 Future<void> main() async {
-  // Obligatoire avant d'utiliser Firebase
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

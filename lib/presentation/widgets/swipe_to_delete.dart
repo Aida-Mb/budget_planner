@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/constants/app_constants.dart';
 
-/// Enveloppe un widget dans un `Dismissible` avec fond rouge "Supprimer"
-/// et une confirmation avant suppression effective (évite les erreurs
-/// de manipulation, surtout pour des données financières).
+/// Enveloppe un widget dans un `Dismissible` avec fond rouge "Supprimer" et une confirmation avant suppression effective.
 class SwipeToDelete extends StatelessWidget {
   final Key dismissibleKey;
   final Widget child;

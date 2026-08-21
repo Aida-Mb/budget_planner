@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../core/constants/app_constants.dart';
 
-/// Calculatrice compacte permettant de calculer un montant
-/// (ex : 1500 + 350 + 2000) directement dans le formulaire de
-/// transaction, plutôt que de faire le calcul mentalement.
-/// Retourne le résultat via Navigator.pop(result) — null si annulé.
+/// Calculatrice compacte permettant de calculer un montant directement dans le formulaire de transaction, plutôt que de faire le calcul mentalement.
+/// Retourne le résultat via Navigator.pop(result), null si annulé.
 class CalculatorDialog extends StatefulWidget {
   const CalculatorDialog({super.key});
 
@@ -39,9 +37,7 @@ class _CalculatorDialogState extends State<CalculatorDialog> {
     });
   }
 
-  /// Évaluation volontairement simple : ne gère que + et - en chaîne
-  /// (largement suffisant pour additionner des dépenses rapidement,
-  /// pas besoin d'un vrai parseur d'expressions pour ce cas d'usage).
+  /// Évaluation simple : ne gère que + et -
   void _evaluate() {
     if (_expression.isEmpty) return;
     try {

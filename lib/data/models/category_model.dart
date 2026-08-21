@@ -1,5 +1,4 @@
-/// Représente une catégorie ajoutée par l'utilisateur, en plus des
-/// catégories prédéfinies dans AppCategories (core/constants).
+/// Représente une catégorie ajoutée par l'utilisateur, en plus des catégories prédéfinies dans AppCategories (core/constants).
 class CategoryModel {
   final String id;
   final String name;

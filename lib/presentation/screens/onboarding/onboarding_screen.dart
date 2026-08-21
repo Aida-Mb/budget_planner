@@ -5,8 +5,7 @@ import '../../widgets/custom_button.dart';
 import '../navigation/main_navigation.dart';
 import 'onboarding_slide.dart';
 
-/// Clé utilisée dans SharedPreferences pour ne montrer
-/// l'onboarding qu'une seule fois (au premier lancement).
+/// Clé utilisée dans SharedPreferences pour ne montrer l'onboarding qu'une seule fois.
 const String _onboardingSeenKey = 'onboarding_seen';
 
 class OnboardingScreen extends StatefulWidget {

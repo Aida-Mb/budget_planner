@@ -1,5 +1,4 @@
 /// Représente un compte financier de l'utilisateur
-/// (ex : Cash, Carte bancaire, Épargne).
 class AccountModel {
   final String id;
   final String name; // ex: "Cash", "Carte BNP"
@@ -32,7 +31,7 @@ class AccountModel {
     };
   }
 
-  /// Crée une copie modifiée de l'objet (utile pour les mises à jour).
+  /// Crée une copie modifiée de l'objet.
   AccountModel copyWith({String? name, String? type, double? balance}) {
     return AccountModel(
       id: id,

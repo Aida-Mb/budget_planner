@@ -5,8 +5,6 @@ import '../../core/constants/app_constants.dart';
 import '../../data/models/transaction_model.dart';
 
 /// Camembert des dépenses par catégorie pour le mois en cours.
-/// Reçoit directement la liste des transactions (déjà filtrée par
-/// mois côté écran appelant) pour rester un widget "bête" et réutilisable.
 class ExpensePieChart extends StatefulWidget {
   final List<TransactionModel> transactions;
 

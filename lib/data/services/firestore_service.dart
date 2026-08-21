@@ -6,9 +6,7 @@ import '../models/budget_model.dart';
 import '../models/category_model.dart';
 
 /// Centralise TOUS les accès à Firestore.
-/// Aucun écran ne doit importer `cloud_firestore` directement :
-/// il passe toujours par ce service. Si un jour on change de backend,
-/// seul ce fichier est à modifier.
+/// Aucun écran n'importer `cloud_firestore` directement : il passe toujours par ce service.
 class FirestoreService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
@@ -75,7 +73,6 @@ class FirestoreService {
   }
 
   /// Ajoute une transaction ET met à jour le solde du compte associé
-  /// dans une transaction Firestore atomique (tout réussit, ou rien).
   Future<void> addTransaction(TransactionModel transaction) async {
     try {
       await _db.runTransaction((firestoreTx) async {
@@ -127,10 +124,7 @@ class FirestoreService {
     }
   }
 
-  /// Modifie une transaction existante. Gère le cas où le montant, le
-  /// type OU le compte associé ont changé : annule l'effet de l'ancienne
-  /// transaction sur l'ancien compte, puis applique la nouvelle sur le
-  /// (potentiellement nouveau) compte. Tout se passe de façon atomique.
+  /// Modifie une transaction existante.
   Future<void> updateTransaction(
       TransactionModel oldTransaction, TransactionModel newTransaction) async {
     try {
@@ -165,8 +159,7 @@ class FirestoreService {
             {'balance': newBalance},
           );
         } else {
-          // Deux comptes différents : on annule sur l'ancien, on applique
-          // sur le nouveau.
+          // Deux comptes différents : on annule sur l'ancien, on applique sur le nouveau.
           final newAccountBalance =
           (newAccountDoc.data() as Map<String, dynamic>)['balance'] as num;
 
@@ -214,7 +207,6 @@ class FirestoreService {
   }
 
   /// Ajoute une contribution à un objectif existant
-  /// (ex : "j'épargne 20 000 FCFA de plus pour mon voyage").
   Future<void> contributeToGoal(String goalId, double amount) async {
     try {
       await _db.runTransaction((firestoreTx) async {
@@ -281,8 +273,7 @@ class FirestoreService {
   // TRANSFERT ENTRE COMPTES
   // ---------------------------------------------------------------------
 
-  /// Transfère un montant d'un compte vers un autre, de façon atomique
-  /// (débite l'un, crédite l'autre — tout réussit ou rien ne change).
+  /// Transfère un montant d'un compte vers un autre.
   Future<void> transferBetweenAccounts({
     required String fromAccountId,
     required String toAccountId,
@@ -327,8 +318,7 @@ class FirestoreService {
   // CATÉGORIES PERSONNALISÉES
   // ---------------------------------------------------------------------
 
-  /// Flux temps réel des catégories ajoutées par l'utilisateur, en plus
-  /// des catégories prédéfinies dans AppCategories.
+  /// Flux temps réel des catégories ajoutées par l'utilisateur, en plus des catégories prédéfinies dans AppCategories.
   Stream<List<CategoryModel>> watchCustomCategories() {
     return _categoriesRef.snapshots().map((snapshot) {
       return snapshot.docs

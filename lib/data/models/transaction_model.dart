@@ -47,7 +47,6 @@ class TransactionModel {
   }
 
   /// Montant signé : positif pour un revenu, négatif pour une dépense.
-  /// Pratique pour calculer un solde par simple somme.
   double get signedAmount =>
       type == TransactionType.income ? amount : -amount;
 }

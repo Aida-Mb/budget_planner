@@ -1,5 +1,4 @@
 /// Représente un objectif financier personnel
-/// (ex : "Voyage à Dakar", montant cible 500 000 FCFA).
 class GoalModel {
   final String id;
   final String title;
@@ -36,7 +35,7 @@ class GoalModel {
     };
   }
 
-  /// Progression entre 0.0 et 1.0, utilisée pour la barre de progression.
+
   double get progress =>
       targetAmount <= 0 ? 0 : (currentAmount / targetAmount).clamp(0, 1);
 

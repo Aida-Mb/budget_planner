@@ -3,9 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'onboarding_screen.dart';
 import '../navigation/main_navigation.dart';
 
-/// Point d'entrée après le splash Firebase : vérifie si l'utilisateur
-/// a déjà vu l'onboarding. Si oui, va direct à l'app. Sinon, montre
-/// les slides de présentation.
+/// Point d'entrée après le splash Firebase : vérifie si l'utilisateur a déjà vu l'onboarding. Si oui, va direct à l'app. Sinon, montre les slides de présentation.
 class AppEntryPoint extends StatelessWidget {
   const AppEntryPoint({super.key});
 

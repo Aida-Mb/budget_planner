@@ -8,9 +8,7 @@ import '../../widgets/category_budget_tile.dart';
 import '../../widgets/expense_pie_chart.dart';
 import 'set_budget_dialog.dart';
 
-/// Écran Insights : budget par catégorie (dépenses du mois vs limite
-/// définie). Les graphiques fl_chart (camembert par catégorie) seront
-/// ajoutés dans une prochaine étape.
+/// Écran Insights : budget par catégorie
 class InsightsScreen extends StatelessWidget {
   InsightsScreen({super.key});
 

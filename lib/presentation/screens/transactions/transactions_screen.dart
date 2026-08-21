@@ -8,8 +8,7 @@ import 'add_transaction_screen.dart';
 
 enum _PeriodFilter { today, week, month, all }
 
-/// Écran Transactions : historique complet, filtrable par période,
-/// avec suppression par swipe.
+/// Écran Transactions : historique complet, filtrable par période, avec suppression par swipe.
 class TransactionsScreen extends StatefulWidget {
   const TransactionsScreen({super.key});
 

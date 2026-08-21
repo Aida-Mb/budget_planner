@@ -3,15 +3,13 @@ import 'package:fl_chart/fl_chart.dart';
 import '../../core/constants/app_constants.dart';
 import '../../data/models/transaction_model.dart';
 
-/// Diagramme en barres comparant revenus et dépenses jour par jour,
-/// sur les 7 derniers jours (façon image de référence "Statistics").
+/// Diagramme en barres comparant revenus et dépenses jour par jour, sur les 7 derniers jours.
 class WeeklyBarChart extends StatelessWidget {
   final List<TransactionModel> transactions;
 
   const WeeklyBarChart({super.key, required this.transactions});
 
-  /// Regroupe les transactions des 7 derniers jours par jour,
-  /// en séparant le total des revenus et des dépenses.
+  /// Regroupe les transactions des 7 derniers jours par jour, en séparant le total des revenus et des dépenses.
   List<_DayTotals> _computeDailyTotals() {
     final now = DateTime.now();
     final days = List.generate(7, (i) {

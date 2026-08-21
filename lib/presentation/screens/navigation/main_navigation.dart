@@ -5,8 +5,7 @@ import '../insights/insights_screen.dart';
 import '../accounts/accounts_screen.dart';
 import '../transactions/transactions_screen.dart';
 
-/// Point d'entrée de la navigation : gère le changement entre
-/// les 4 pages principales via une bottom navigation bar.
+/// Point d'entrée de la navigation : gère le changement entre les 4 pages principales via une bottom navigation bar.
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
 
@@ -17,8 +16,7 @@ class MainNavigation extends StatefulWidget {
 class _MainNavigationState extends State<MainNavigation> {
   int _currentIndex = 0;
 
-  // On garde les écrans en mémoire (pas de rebuild complet à chaque
-  // changement d'onglet).
+  // On garde les écrans en mémoire (pas de rebuild complet à chaque changement d'onglet).
   final List<Widget> _screens = [
     const HomeScreen(),
     InsightsScreen(),

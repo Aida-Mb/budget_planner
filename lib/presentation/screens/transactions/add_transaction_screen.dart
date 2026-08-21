@@ -9,9 +9,7 @@ import '../../widgets/custom_input.dart';
 import '../../widgets/calculator_dialog.dart';
 import '../../../data/models/category_model.dart';
 
-/// Écran d'ajout OU de modification de transaction. Si [existingTransaction]
-/// est fourni, le formulaire est pré-rempli et la sauvegarde met à jour
-/// la transaction existante au lieu d'en créer une nouvelle.
+/// Écran d'ajout OU de modification de transaction. Si [existingTransaction] est fourni, le formulaire est pré-rempli et la sauvegarde met à jour la transaction existante au lieu d'en créer une nouvelle.
 class AddTransactionScreen extends StatefulWidget {
   final TransactionModel? existingTransaction;
 
@@ -280,10 +278,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
     );
   }
 
-  /// Chips de sélection de catégorie : combine les catégories prédéfinies
-  /// (AppCategories) et celles ajoutées par l'utilisateur, filtrées selon
-  /// le type sélectionné (dépense/revenu). Un chip "+ Ajouter" permet
-  /// d'en créer une nouvelle à la volée.
+  /// Chips de sélection de catégorie : combine les catégories prédéfinies (AppCategories) et celles ajoutées par l'utilisateur, filtrées selon le type sélectionné (dépense/revenu). Un chip "+ Ajouter" permet d'en créer une nouvelle à la volée.
   Widget _buildCategorySelector() {
     return StreamBuilder<List<CategoryModel>>(
       stream: _firestoreService.watchCustomCategories(),

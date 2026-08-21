@@ -5,14 +5,7 @@ import '../../core/constants/app_constants.dart';
 import '../../data/models/transaction_model.dart';
 
 /// Courbe de tendance du solde total sur les 7 derniers jours.
-///
-/// On ne stocke pas d'historique de solde en base — seulement le solde
-/// ACTUEL de chaque compte. On reconstruit donc le solde passé en
-/// remontant dans le temps : solde à la fin du jour D = solde actuel -
-/// (somme des transactions survenues APRÈS ce jour D). Ça fonctionne car
-/// les transferts entre comptes n'affectent pas le solde total (l'argent
-/// change de compte mais pas de "poche"), seules les transactions
-/// (revenu/dépense) le font.
+/// On ne stocke pas d'historique de solde en base — seulement le solde ACTUEL de chaque compte. On reconstruit donc le solde passé en remontant dans le temps : solde à la fin du jour D = solde actuel - (somme des transactions survenues APRÈS ce jour D).
 class BalanceTrendChart extends StatelessWidget {
   final double currentTotalBalance;
   final List<TransactionModel> transactions;
