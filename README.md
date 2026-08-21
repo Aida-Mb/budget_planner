@@ -2,10 +2,6 @@
 
 Application mobile de gestion de budget personnel, développée avec **Flutter** dans le cadre du cours de **Développement Mobile**.
 
-**Auteur :** Aida MBAO
-**École :** École Polytechnique de Thiès
-**Professeur :** M. GUEYE
-
 ---
 
 ## Présentation
