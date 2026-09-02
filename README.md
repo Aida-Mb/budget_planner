@@ -1,10 +1,9 @@
-# BudgetPlanner
+# BudgetPlanner 
 
 Application mobile de gestion de budget personnel, développée avec **Flutter** dans le cadre du cours de **Développement Mobile**.
 
----
 
-## Présentation
+##  Présentation
 
 Suivre ses dépenses, organiser ses revenus et épargner pour des projets futurs restent des défis du quotidien. Les solutions existantes sont souvent trop complexes ou nécessitent la création d'un compte en ligne, ce qui freine leur adoption.
 
@@ -27,7 +26,7 @@ Suivre ses dépenses, organiser ses revenus et épargner pour des projets futurs
 - Budget par catégorie : définition d'une limite mensuelle et suivi de
   la progression (dépensé / restant), avec code couleur d'alerte
 
-###  Comptes
+### Comptes
 - Gestion de plusieurs comptes (Cash, Carte bancaire, Épargne)
 - Transfert d'argent entre comptes
 - Objectifs d'épargne personnalisés (nom, montant cible) avec barre de
@@ -43,6 +42,7 @@ Suivre ses dépenses, organiser ses revenus et épargner pour des projets futurs
 - Modification et suppression (avec confirmation) d'une transaction
 - Recherche par catégorie ou note
 - Filtre par période (Aujourd'hui / 7 jours / Ce mois / Tout)
+
 
 
 ## Architecture
@@ -62,47 +62,49 @@ lib/
     └── widgets/             # Composants réutilisables (boutons, cartes, graphiques...)
 ```
 
-**Principe clé :** aucun écran n'accède directement à Firestore tout passe
+**Principe clé :** aucun écran n'accède directement à Firestore, tout passe
 par `FirestoreService`, ce qui centralise la logique métier et facilite
 la maintenance.
 
+##  Technologies utilisées
 
+| Technologie | Rôle |
+|---|---|
+| Flutter | SDK principal de développement mobile |
+| Dart | Langage de programmation |
+| Cloud Firestore | Base de données temps réel (comptes, transactions, objectifs, budgets, catégories) |
+| fl_chart | Graphiques (camembert, barres, courbe) |
+| shared_preferences | Mémorisation de l'onboarding déjà vu |
+| intl | Formatage des montants et des dates |
 
-## Installation et lancement
+##  Installation et lancement
 
 ### Prérequis
 - Flutter SDK installé (`flutter doctor` sans erreur bloquante)
-- Un projet Firebase avec Firestore activé
 
 ### Étapes
 
 1. **Cloner le dépôt et installer les dépendances**
    ```bash
-   git clone <url-du-dépôt>
+   git clone https://github.com/Aida-Mb/budget_planner.git
    cd budget_planner
    flutter pub get
    ```
 
-2. **Configurer Firebase**
-   ```bash
-   dart pub global activate flutterfire_cli
-   flutterfire configure
-   ```
-   Cette commande génère automatiquement `lib/firebase_options.dart` en
-   liant le projet à une instance Firebase (créer un projet sur
-   [console.firebase.google.com](https://console.firebase.google.com)
-   si besoin, puis activer Firestore Database en mode test).
-
-3. **Lancer l'application**
+2. **Lancer l'application**
    ```bash
    flutter run
    ```
+
+La configuration Firebase (`lib/firebase_options.dart`) est déjà incluse
+dans le dépôt, aucune configuration supplémentaire n'est nécessaire,
+l'application se connecte directement à l'instance Firestore du projet.
 
 Aucune donnée de test n'est pré-remplie : à la première utilisation,
 créer un compte depuis la page **Comptes** avant d'ajouter des
 transactions.
 
-## Structure des données (Firestore)
+##  Structure des données (Firestore)
 
 | Collection | Champs | Description |
 |---|---|---|
@@ -111,3 +113,8 @@ transactions.
 | `goals` | `title`, `targetAmount`, `currentAmount`, `deadline` | Objectifs d'épargne |
 | `budgets` | `category` *(= ID du document)*, `limitAmount` | Limites budgétaires par catégorie |
 | `categories` | `name`, `type` | Catégories ajoutées par l'utilisateur |
+
+## Limites et Perspectives 
+
+- Export des données (CSV/PDF)
+- Le graphique "Répartition des dépenses" se limite au mois en cours
